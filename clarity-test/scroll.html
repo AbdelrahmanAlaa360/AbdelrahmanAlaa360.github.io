@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrolling Div Example</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .scrolling-div {
+            width: 600px;
+            height: 800px;
+            overflow-y: scroll;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        .long-item {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="scrolling-div">
+        <script>
+            const container = document.querySelector('.scrolling-div');
+            for (let i = 1; i <= 10000; i++) {
+                const item = document.createElement('div');
+                item.className = 'long-item';
+                item.textContent = `Item ${i}: Lorem ipsum dolor sit amet, consectetur adipiscing elit...`;
+                container.appendChild(item);
+            }
+        </script>
+    </div>
+</body>
+</html>

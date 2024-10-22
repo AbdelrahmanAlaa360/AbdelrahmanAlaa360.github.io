@@ -13,7 +13,7 @@
             padding: 0;
         }
         header {
-            background-color: #007bff;
+            background-color: #d33c00;
             color: white;
             padding: 20px;
             text-align: center;
@@ -33,8 +33,25 @@
             padding: 20px;
             margin: 10px;
         }
+        
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #28a745;
+            color: white;
+            transition: background-color 0.3s;
+            margin: 10px;
+        }
+        
+        button:hover {
+            background-color: #218838;
+        }
+        
         footer {
-            background-color: #007bff;
+            background-color: #d33c00;
             color: white;
             text-align: center;
             padding: 10px;
@@ -59,27 +76,37 @@
     </nav>
 
     <section>
-        <h2>Latest News</h2>
-        <p>Stay updated with our latest developments and announcements.</p>
+        <h2>JavaScript Errors Below</h2>
+        <p>Check the browser console for intentional errors.</p>
+        <button id="triggerErrorButton">Trigger ReferenceError</button>
+        <button id="undefinedFunctionButton">Trigger TypeError</button>
+        <button id="syntaxErrorButton">Trigger SyntaxError</button>
     </section>
 
-    <section>
-        <h2>Featured Products</h2>
-        <ul>
-            <li>Product A</li>
-            <li>Product B</li>
-            <li>Product C</li>
-        </ul>
-    </section>
+    <script>
+        // Error 1: Trigger a ReferenceError by using an undefined variable
+        document.getElementById('triggerErrorButton').addEventListener('click', () => {
+            console.log("Triggering ReferenceError...");
+            console.log(nonExistentVariable); // ReferenceError: nonExistentVariable is not defined
+        });
+
+        // Error 2: Call a non-existent function to raise a TypeError
+        document.getElementById('undefinedFunctionButton').addEventListener('click', () => {
+            console.log("Triggering TypeError...");
+            nonExistentFunction(); // TypeError: nonExistentFunction is not a function
+        });
+
+        // Error 3: Trigger a SyntaxError by intentionally writing bad syntax
+        document.getElementById('syntaxErrorButton').addEventListener('click', () => {
+            console.log("Triggering SyntaxError...");
+            eval('var a = '); // SyntaxError: Unexpected end of input
+        });
+    </script>
 
     <footer>
         &copy; 2024 Our Company | All Rights Reserved
     </footer>
 
-    <script>
-        // console.log('Home page fully loaded');
-        // alert('Welcome to the Home Page!');
-    </script>
     <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
